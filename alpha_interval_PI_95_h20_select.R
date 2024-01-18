@@ -1,0 +1,120 @@
+##########
+## female 
+##########
+
+## eigenvalue ratio criterion
+
+# CPD
+
+alpha_para_CPD_AUS_female_PI_95_h20 = alpha_para_CPD_AUS_female_value_PI_95_h20 = vector("numeric", 20)
+for(iwk in 1:20)
+{
+    optim_fun <- optimise(f = alpha_int_cpd_para_select_h20, interval = c(0, 1),
+                          dat = female_pop, horizon = iwk, method_ncomp = "eigenvalue",
+                          uni_fore_method = "arima", PI_level = 95)
+    alpha_para_CPD_AUS_female_PI_95_h20[iwk] = optim_fun$minimum
+    alpha_para_CPD_AUS_female_value_PI_95_h20[iwk] = optim_fun$objective
+    print(iwk); rm(iwk); rm(optim_fun)
+}
+
+# interval score
+
+alpha_para_score_AUS_female_PI_95_h20 = alpha_para_score_AUS_female_value_PI_95_h20 = vector("numeric", 20)
+for(iwk in 1:20)
+{
+    optim_fun <- optimise(f = alpha_int_score_para_select_h20, interval = c(0, 1),
+                          dat = female_pop, horizon = iwk, method_ncomp = "eigenvalue",
+                          uni_fore_method = "arima", PI_level = 95)
+    alpha_para_score_AUS_female_PI_95_h20[iwk] = optim_fun$minimum
+    alpha_para_score_AUS_female_value_PI_95_h20[iwk] = optim_fun$objective
+    print(iwk); rm(iwk); rm(optim_fun)
+}
+
+## fixed (K = 6)
+
+# CPD
+
+alpha_para_CPD_AUS_female_ncomp_6_PI_95_h20 = alpha_para_CPD_AUS_female_value_ncomp_6_PI_95_h20 = vector("numeric", 20)
+for(iwk in 1:20)
+{
+    optim_fun <- optimise(f = alpha_int_cpd_para_select_h20, interval = c(0, 1),
+                          dat = female_pop, horizon = iwk, method_ncomp = "fixed",
+                          uni_fore_method = "arima", PI_level = 95)
+    alpha_para_CPD_AUS_female_ncomp_6_PI_95_h20[iwk] = optim_fun$minimum
+    alpha_para_CPD_AUS_female_value_ncomp_6_PI_95_h20[iwk] = optim_fun$objective
+    print(iwk); rm(iwk); rm(optim_fun)
+}
+
+# interval score
+
+alpha_para_score_AUS_female_ncomp_6_PI_95_h20 = alpha_para_score_AUS_female_value_ncomp_6_PI_95_h20 = vector("numeric", 20)
+for(iwk in 1:20)
+{
+    optim_fun <- optimise(f = alpha_int_score_para_select_h20, interval = c(0, 1),
+                          dat = female_pop, horizon = iwk, method_ncomp = "fixed",
+                          uni_fore_method = "arima", PI_level = 95)
+    alpha_para_score_AUS_female_ncomp_6_PI_95_h20[iwk] = optim_fun$minimum
+    alpha_para_score_AUS_female_value_ncomp_6_PI_95_h20[iwk] = optim_fun$objective
+    print(iwk); rm(iwk); rm(optim_fun)
+}
+
+#######
+# male 
+#######
+
+## eigenvalue
+
+# CPD
+
+alpha_para_CPD_AUS_male_PI_95_h20 = alpha_para_CPD_AUS_male_value_PI_95_h20 = vector("numeric", 20)
+for(iwk in 1:20)
+{
+    optim_fun <- optimise(f = alpha_int_cpd_para_select_h20, interval = c(0, 1),
+                          dat = male_pop, horizon = iwk, method_ncomp = "eigenvalue",
+                          uni_fore_method = "arima", PI_level = 95)
+    alpha_para_CPD_AUS_male_PI_95_h20[iwk] = optim_fun$minimum
+    alpha_para_CPD_AUS_male_value_PI_95_h20[iwk] = optim_fun$objective
+    print(iwk); rm(iwk); rm(optim_fun)
+}
+
+# interval score
+
+alpha_para_score_AUS_male_PI_95_h20 = alpha_para_score_AUS_male_value_PI_95_h20 = vector("numeric", 20)
+for(iwk in 1:20)
+{
+    optim_fun <- optimise(f = alpha_int_score_para_select_h20, interval = c(0, 1),
+                          dat = male_pop, horizon = iwk, method_ncomp = "eigenvalue",
+                          uni_fore_method = "arima", PI_level = 95)
+    alpha_para_score_AUS_male_PI_95_h20[iwk] = optim_fun$minimum
+    alpha_para_score_AUS_male_value_PI_95_h20[iwk] = optim_fun$objective
+    print(iwk); rm(iwk); rm(optim_fun)
+}
+
+## fixed
+
+# CPD
+
+alpha_para_CPD_AUS_male_ncomp_6_PI_95_h20 = alpha_para_CPD_AUS_male_value_ncomp_6_PI_95_h20 = vector("numeric", 20)
+for(iwk in 1:20)
+{
+    optim_fun <- optimise(f = alpha_int_cpd_para_select_h20, interval = c(0, 1),
+                          dat = male_pop, horizon = iwk, method_ncomp = "fixed",
+                          uni_fore_method = "arima", PI_level = 95)
+    alpha_para_CPD_AUS_male_ncomp_6_PI_95_h20[iwk] = optim_fun$minimum
+    alpha_para_CPD_AUS_male_value_ncomp_6_PI_95_h20[iwk] = optim_fun$objective
+    print(iwk); rm(iwk); rm(optim_fun)
+}
+
+# interval score
+
+alpha_para_score_AUS_male_ncomp_6_PI_95_h20 = alpha_para_score_AUS_male_value_ncomp_6_PI_95_h20 = vector("numeric", 20)
+for(iwk in 1:20)
+{
+    optim_fun <- optimise(f = alpha_int_score_para_select_h20, interval = c(0, 1),
+                          dat = male_pop, horizon = iwk, method_ncomp = "fixed",
+                          uni_fore_method = "arima", PI_level = 95)
+    alpha_para_score_AUS_male_ncomp_6_PI_95_h20[iwk] = optim_fun$minimum
+    alpha_para_score_AUS_male_value_ncomp_6_PI_95_h20[iwk] = optim_fun$objective
+    print(iwk); rm(iwk); rm(optim_fun)
+}
+
